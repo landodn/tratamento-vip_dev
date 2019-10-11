@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	template="/pages/commons/templates/main_layout.xhtml">
+
+	<ui:define name="header"></ui:define>
+
+	<ui:define name="content">
+
+		<!-- HEADER -->
+		<header>
+			<a href="pre_cadastro.xhtml" class="bt-continuar"> <span>VOLTAR</span>
+				<h:graphicImage library="images" name="ico-continuar.png" />
+			</a>
+			<h1 class="titulo">Cadastro</h1>
+		</header>
+
+		<section class="box-corpo">
+			<div class="box-aviso-cadastro">
+				<h:graphicImage library="images" name="ico-info.png"
+					styleClass="ico-info" />
+				<h:outputText
+					value="Para utilizar os recursos de nosso sistema é necessário o preenchimento de todos os campos obrigatórios do formulário abaixo, é simples e rápido." />
+			</div>
+
+			<h:form id="form" prependId="false"
+				styleClass="formcadastro form-cad" binding="#{salaoBelezaBean.form}">
+
+				<t:saveState value="#{salaoBelezaBean.state}" />
+				<t:saveState value="#{salaoBelezaBean.salaoBeleza}" />
+
+				<fieldset>
+					<label for="nomepropri">nome do proprietário:</label>
+					<h:inputText name="nomepropri" id="nomepropri"
+						styleClass="required"
+						value="#{salaoBelezaBean.salaoBeleza.nomeProprietario}"
+						maxlength="200" />
+				</fieldset>
+				<fieldset>
+					<label for="razaosocial">razão social:</label>
+					<h:inputText name="razaosocial" id="razaosocial"
+						styleClass="required"
+						value="#{salaoBelezaBean.salaoBeleza.razaoSocial}" maxlength="150" />
+				</fieldset>
+				<fieldset>
+					<label for="nome-fantasia">nome fantasia:</label>
+					<h:inputText name="nome-fantasia" id="nome-fantasia"
+						styleClass="required"
+						value="#{salaoBelezaBean.salaoBeleza.nomeFantasia}"
+						maxlength="200" />
+				</fieldset>
+				<fieldset class="linha1">
+					<label for="cnpj">cnpj:</label>
+					<h:inputText name="cpfCnpj" id="cnpj" styleClass="required" value="#{salaoBelezaBean.salaoBeleza.cpfCnpj}" maxlength="22" />
+				</fieldset>
+				<fieldset class="linha2">
+					<label for="inscricaoEstadual">inscrição estadual:</label>
+					<h:inputText name="inscricaoEstadual" id="inscricaoEstadual"
+						value="#{salaoBelezaBean.salaoBeleza.inscricaoEstadual}" />
+				</fieldset>
+				<fieldset>
+					<label for="endereco">logradouro:</label>
+					<h:inputText name="endereco" id="endereco" styleClass="required"
+						value="#{salaoBelezaBean.salaoBeleza.endereco.logradouro}"
+						maxlength="150" />
+				</fieldset>
+				<fieldset class="linha3">
+					<label for="numero">número:</label>
+					<h:inputText name="numero" id="numero" styleClass="required"
+						value="#{salaoBelezaBean.salaoBeleza.endereco.numero}"
+						maxlength="20" />
+				</fieldset>
+				<fieldset class="linha4">
+					<label for="complemento">complemento:</label>
+					<h:inputText name="complemento" id="complemento"
+						value="#{salaoBelezaBean.salaoBeleza.endereco.complemento}" />
+				</fieldset>
+				<fieldset class="linha5">
+					<label for="bairro">bairro:</label>
+					<h:inputText name="bairro" id="bairro" class="required"
+						value="#{salaoBelezaBean.salaoBeleza.endereco.bairro}" />
+				</fieldset>
+				<fieldset class="linha6">
+					<label for="cep">cep:</label>
+					<h:inputText name="cep" id="cep" class="required"
+						value="#{salaoBelezaBean.salaoBeleza.endereco.cep}" />
+				</fieldset>
+				<fieldset class="linha7">
+					<label for="cidade">cidade:</label>
+					<h:inputText name="cidade" id="cidade" class="required"
+						value="#{salaoBelezaBean.salaoBeleza.endereco.cidade}" />
+				</fieldset>
+				<fieldset class="linha8">
+					<label for="uf">uf:</label>
+					<h:selectOneMenu id="uf" styleClass="uf required"
+						value="#{salaoBelezaBean.salaoBeleza.endereco.uf}"
+						converter="genericConverter">
+						<f:selectItem itemValue="" itemLabel="" />
+						<f:selectItems value="#{salaoBelezaBean.ufs}" var="c"
+							itemValue="#{c}" itemLabel="#{c.sigla}" />
+					</h:selectOneMenu>
+					<a href=".uf" class="bt-select btselect" style="right: 0;"></a>
+				</fieldset>
+
+				<t:div id="listaDeTelefones">
+					<c:set var="cont" value="0" />
+					
+					 <ui:repeat
+						value="#{salaoBelezaBean.salaoBeleza.telefonesSalaoBeleza}"
+						var="telefones">
+						<fieldset class="linha9">
+							<label for="tipoTelefone">Tipo de Telefone:</label>
+							<h:selectOneMenu id="tipoTelefone"
+								styleClass="tipoTelefone required"
+								value="#{telefones.tipoTelefone}" converter="genericConverter">
+								<f:selectItem itemValue="" itemLabel="" />
+								<f:selectItems value="#{salaoBelezaBean.tiposTelefones}" var="t"
+									itemValue="#{t}" itemLabel="#{t.descricao}" />
+							</h:selectOneMenu>
+							<a href=".tipoTelefone" class="bt-select btselect"
+								style="right: 0;"></a>
+						</fieldset>
+						<fieldset class="linha10">
+							<label for="ddd#{cont}">ddd:</label>
+							<h:inputText name="ddd#{cont}" id="ddd#{cont}"
+								value="#{telefones.ddd}" />
+						</fieldset>
+						<fieldset class="linha11">
+							<label for="numeroTel#{cont}">numero:</label>
+							<h:inputText name="numeroTel#{cont}" id="numeroTel#{cont}"
+								value="#{telefones.numero}" />
+						</fieldset>
+						
+							
+								<fieldset class="linha11_1">
+									<h:commandLink rendered="#{cont == 0}" action="#{salaoBelezaBean.addTelefone}">
+										<h:graphicImage library="images" name="ico-mais.jpg" />
+										
+									</h:commandLink>
+								</fieldset>
+														     
+								<fieldset class="linha11_1">
+									<h:commandLink  action="#{salaoBelezaBean.delTelefone}" >
+										
+										<h:graphicImage library="images" name="ico-menos.jpg" />
+									
+										</h:commandLink>
+								</fieldset>
+							
+					
+						<c:if test="#{cont > 0}"></c:if>
+						<c:set var="cont" value="#{cont+1}" />
+					</ui:repeat>
+				</t:div>
+
+				<fieldset class="linha11">
+					<label for="webSite">website:</label>
+					<h:inputText name="webSite" id="webSite"
+						value="#{salaoBelezaBean.salaoBeleza.webSite}" />
+				</fieldset>
+				<fieldset class="linha12">
+					<label for="email">e-mail:</label>
+					<h:inputText name="email" id="email" class="required"
+						value="#{salaoBelezaBean.salaoBeleza.loginEmail}" />
+				</fieldset>
+				<div class="clearfix"></div>
+				<fieldset class="linha13">
+					<label for="senha">senha:</label>
+					<h:inputText name="senha" id="senha" class="required"
+						value="#{salaoBelezaBean.salaoBeleza.senha}" />
+				</fieldset>
+				<div class="clearfix"></div>
+				<fieldset class="linha14">
+					<label for="confirmarsenha">confirmar senha:</label> <input
+						type="text" name="confirmarsenha" id="confirmarsenha"
+						class="required" />
+				</fieldset>
+				<div class="clearfix"></div>
+				<fieldset>
+
+					<h:commandButton id="confirmar" value="Confirmar"
+						class="btConfirmar" action="#{salaoBelezaBean.inserir}" />
+				</fieldset>
+				<fieldset style="margin: 30px 0;">
+					<a href="#"> <h:graphicImage library="images"
+							name="ico-faleconosco.png" />
+					</a>
+				</fieldset>
+			</h:form>
+
+		</section>
+
+
+	</ui:define>
+
+</ui:composition>

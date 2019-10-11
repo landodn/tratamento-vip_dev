@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/commons/templates/main_layout.xhtml">
+	
+	<ui:define name="content">
+		<div id="container" align="left">
+			<h1>Cadastro de Salão de Beleza</h1>
+			
+			<h:form binding="#{salaoBelezaBean.form}">
+			
+				<t:saveState value="#{salaoBelezaBean.state}"/>
+				<t:saveState value="#{salaoBelezaBean.salaoBeleza}"/>
+				<t:saveState value="#{salaoBelezaBean.lstSalaoBeleza}" />
+				
+				<t:div id="blocoDePesquisa" rendered="#{salaoBelezaBean.pesquisando}">
+					<div align="right">
+						<h:commandLink value="Novo" 
+							action="#{salaoBelezaBean.preparaParaAdicionar}">
+							<f:ajax render="@form" />
+						</h:commandLink> &#160;
+						<h:commandButton value="Listar" 
+							action="#{salaoBelezaBean.listarTodos}">
+							<f:ajax render="tabela :mensagens" />
+						</h:commandButton>
+					</div>
+					<h:dataTable
+						id="tabela"
+						value="#{salaoBelezaBean.lstSalaoBeleza}"
+						var="salao"
+						rowClasses="odd, even">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="ID" />
+							</f:facet>
+							#{salao.id}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="CPF/CNPJ" />
+							</f:facet>
+							<h:outputText value="#{salao.cpfCnpj}">
+								<f:converter converterId="cpfCnpjConverter"/>							
+							</h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nome Fantasia" />
+							</f:facet>
+							<h:outputText value="#{salao.nomeFantasia}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Ações" />
+							</f:facet>
+							<h:commandLink value="editar"
+								action="#{salaoBelezaBean.preparaParaAlterar(salao)}">
+								<f:ajax render="@form" />
+							</h:commandLink>  &#160;
+							<h:commandLink value="remover"
+								action="#{salaoBelezaBean.excluir}"
+								onclick="return confirm('Deseja realmente remover este Salão de Beleza?');">
+								<f:ajax render="@form :mensagens" />
+								<f:setPropertyActionListener 
+									target="#{salaoBelezaBean.salao}" value="#{salao}" />
+							</h:commandLink>
+						</h:column>
+					</h:dataTable>
+				</t:div>
+				
+				<t:div id="blocoDeEdicao" 
+					rendered="#{not salaoBelezaBean.pesquisando}">
+					
+					<h:outputLabel value="UF" for="uf" />
+					<p:selectOneMenu id="uf" styleClass="texto-longo" value="#{salaoBelezaBean.selectedUF}">
+						<f:selectItems value="#{salaoBelezaBean.lstUF}" var="c" itemValue="#{c}" itemLabel="#{c.sigla}"/>
+						<f:converter converterId="ufConverter"/>
+					</p:selectOneMenu>
+					
+					<div align="right">
+						<h:commandLink value="Voltar"
+							immediate="true" 
+							action="#{salaoBelezaBean.voltar}" >
+							<f:ajax execute="@form" render="@form :mensagens" />
+						</h:commandLink> &#160;
+						<h:commandButton value="Inserir" 
+							action="#{salaoBelezaBean.inserir}"
+							rendered="#{salaoBelezaBean.adicionando}">
+							<f:ajax execute="@form" render="@form :mensagens" />
+						</h:commandButton>
+						<h:commandButton value="Alterar" 
+							action="#{salaoBelezaBean.alterar}"
+							rendered="#{salaoBelezaBean.editando}">
+							<f:ajax execute="@form" render="@form :mensagens" />
+						</h:commandButton>
+					</div>
+				</t:div>
+			
+			</h:form>
+			
+		</div>
+	</ui:define>
+		
+</ui:composition>

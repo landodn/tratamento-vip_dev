@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/commons/templates/main_layout.xhtml">
+	
+	<ui:define name="content">
+		<div id="container" align="left">
+			<h1>Cadastro de Tipo de Endereço</h1>
+			
+			<h:form binding="#{tipoEnderecoBean.form}">
+				<t:saveState value="#{tipoEnderecoBean.state}"/>
+				<t:saveState value="#{tipoEnderecoBean.tipoEndereco}"/>
+				<t:saveState value="#{tipoEnderecoBean.tiposEndereco}" />
+				
+				<t:div id="blocoDePesquisa" rendered="#{tipoEnderecoBean.pesquisando}">
+					<div align="right">
+						<h:commandLink value="Novo" 
+							action="#{tipoEnderecoBean.preparaParaInserir}">
+							<f:ajax render="@form" />
+						</h:commandLink> &#160;
+						<h:commandButton value="Listar" 
+							action="#{tipoEnderecoBean.listarTodos}">
+							<f:ajax render="tabela :mensagens" />
+						</h:commandButton>
+					</div>
+					
+					<h:dataTable
+						id="tabela"
+						value="#{tipoEnderecoBean.tiposEndereco}"
+						var="tipo"
+						rowClasses="odd, even">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="ID" />
+							</f:facet>
+							#{tipo.id}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Descrição" />
+							</f:facet>
+							#{tipo.descricao}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Ações" />
+							</f:facet>
+							<h:commandLink value="editar"
+								action="#{tipoEnderecoBean.preparaParaAlterar(tipo)}">
+								<f:ajax render="@form" />
+							</h:commandLink>  &#160;
+							<h:commandLink value="remover"
+								action="#{tipoEnderecoBean.excluir}"
+								onclick="return confirm('Deseja realmente remover este Tipo de Endereco?');">
+								<f:ajax render="@form :mensagens" />
+								<f:setPropertyActionListener 
+									target="#{tipoEnderecoBean.tipoEndereco}" value="#{tipo}" />
+							</h:commandLink>
+						</h:column>
+					</h:dataTable>
+				</t:div>
+				
+				<t:div id="blocoDeEdicao" 
+					rendered="#{not tipoEnderecoBean.pesquisando}">
+					<h:outputLabel value="Descrição" for="descricao" />
+					<h:inputText id="descricao" styleClass="texto-longo"
+						value="#{tipoEnderecoBean.tipoEndereco.descricao}" 
+						label="Descrição" 
+						required="true" />
+					<div align="right">
+						<h:commandLink value="Voltar"
+							immediate="true" 
+							action="#{tipoEnderecoBean.voltar}" >
+							<f:ajax execute="@form" render="@form :mensagens" />
+						</h:commandLink> &#160;
+						<h:commandButton value="Inserir" 
+							action="#{tipoEnderecoBean.inserir}"
+							rendered="#{tipoEnderecoBean.adicionando}">
+							<f:ajax execute="@form" render="@form :mensagens" />
+						</h:commandButton>
+						<h:commandButton value="Alterar" 
+							action="#{tipoEnderecoBean.alterar}"
+							rendered="#{tipoEnderecoBean.editando}">
+							<f:ajax execute="@form" render="@form :mensagens" />
+						</h:commandButton>
+					</div>
+				</t:div>
+			</h:form>
+			
+		</div>
+	</ui:define>
+</ui:composition>

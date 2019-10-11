@@ -1,0 +1,934 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+	font-family: 'ChaletComprimeCologneSixty';
+	src:
+		url("#{resource['css:fonts/chalet-comprime-cologne-sixty-1361536075.eot']}");
+	src:
+		url("#{resource['css:fonts/chalet-comprime-cologne-sixty-1361536075.eot']}?#iefix")
+		format('embedded-opentype'),
+		url("#{resource['css:fonts/chalet-comprime-cologne-sixty-1361536075.woff']}")
+		format('woff'),
+		url("#{resource['css:fonts/chalet-comprime-cologne-sixty-1361536075.ttf']}")
+		format('truetype'),
+		url("#{resource['css:fonts/chalet-comprime-cologne-sixty-1361536075.svg']}#WebSymbolsRegular")
+		format('svg');
+}
+
+@font-face {
+	font-family: 'HelveticaNeueLight';
+	src: url("#{resource['css:fonts/helveticaneuelight.eot']}");
+	src: url("#{resource['css:fonts/helveticaneuelight.eot']}?#iefix")
+		format('embedded-opentype'),
+		url("#{resource['css:fonts/helveticaneuelight.woff']}") format('woff'),
+		url("#{resource['css:fonts/helveticaneuelight.ttf']}")
+		format('truetype'),
+		url("#{resource['css:fonts/helveticaneuelight.svg']}#HelveticaNeueLight")
+		format('svg');
+}
+
+.header {
+	width: 100%;
+	height: 90px;
+	background: #270d2f;
+}
+
+.logo {
+	height: 70px;
+	margin: 8px 0;
+}
+
+.nav {
+	float: right;
+}
+
+.nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav ul li {
+	display: -moz-inline-stack;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
+.nav ul li a {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #fff;
+	font-size: 45px;
+	height: 90px;
+	line-height: 90px;
+	margin: 0 40px;
+}
+
+.nav ul li a.before {
+	margin-right: 0;
+	margin-left: 40px;
+}
+
+.nav ul li a:hover,.nav ul li a:active,.nav ul li a.ativo {
+	color: #ceb2d6;
+}
+
+html,body,input,button {
+	font-family: "ChaletComprimeCologneSixty", Arial;
+}
+
+.back_login {
+	background-color: #270D2F;
+}
+
+.back_interno {
+	background-color: #fafafa;
+}
+
+/* Tela 1 */
+.box-login {
+	width: 400px;
+	margin: 30px auto 0;
+}
+
+.logo_inicio {
+	font-size: 30px;
+	color: #8560A9;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.form-login fieldset {
+	position: relative;
+	float: left;
+	display: inline-block;
+	width: 50%;
+	margin-bottom: 10px;
+}
+
+.form-login label {
+	text-align: left;
+	color: #8560A9;
+	font-size: 22px;
+}
+
+.form-login input {
+	font-size: 20px;
+	width: 180px;
+	height: 20px;
+	border: 1px solid #8560A9;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	margin-bottom: 15px;
+	font-family: "ChaletComprimeCologneSixty", Arial;
+}
+
+.form-login fieldset.form-login-botao {
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+
+.form-login fieldset.form-rec-senha {
+	clear: both;
+	width: 100%;
+	text-align: center;
+}
+
+.form-login-botao a,input[type=submit] {
+	display: block;
+	margin: 0 auto;
+	width: 170px;
+	padding: 5px 0;
+	height: 33px;
+	background: #8455A2;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+
+.form-rec-senha a {
+	margin: 0 auto;
+	font-size: 16px;
+	color: #fff;
+	text-decoration: none;
+	margin-bottom: 10px;
+}
+
+/* Tela 2 */
+.logo_interno {
+	width: 200px;
+	margin: 50px auto 0;
+}
+
+.banner {
+	width: 800px;
+	margin: 20px auto 0;
+}
+
+.box-corpo {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+.box-texto-passo {
+	font-size: 64px;
+	color: #8560A9;
+	text-align: center;
+}
+
+.box-passo-passo {
+	float: left;
+	width: 960px;
+}
+
+.passo-passo {
+	float: left;
+	width: 23%;
+	margin-left: 1%;
+}
+
+.passo-dest {
+	width: 100%;
+	font-size: 150px;
+	color: #CCCCE4;
+	text-align: center;
+}
+
+.passo-texto {
+	width: 100%;
+	font-size: 16px;
+	color: #8560A9;
+	text-align: center;
+}
+
+.box-footer {
+	width: 960px;
+	margin: 0 auto 40px;;
+	text-align: center;
+}
+
+.box-footer h3 {
+	font-size: 14px;
+	color: #CCCCE4;
+	margin-bottom: 0;
+}
+
+/*-- Home --*/
+.box-texto-home {
+	font-size: 64px;
+	color: #cccce5;
+	text-align: center;
+}
+
+.box-footer-home {
+	width: 1200px;
+	margin: 20px auto 40px;
+	text-align: center;
+}
+
+.box-footer-home ul li {
+	float: left;
+	display: inline-block;
+	margin-right: 40px;
+	line-height: 75px;
+}
+
+/* Minha Conta */
+.art-minha-conta {
+	width: 750px;
+	float: left;
+	margin-top: 30px;
+}
+
+.box-conta {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.box-conta li {
+	margin-bottom: 20px;
+}
+
+.box-conta li h1 {
+	color: #8455A2;
+	font-weight: 500;
+	border-bottom: #8455A2 2px solid;
+}
+
+.box-conta li .box-list-dados-prof {
+	width: 100px;
+	float: left;
+}
+
+.box-conta li .box-list-dados-prof ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.box-conta li .box-list-dados-prof ul li {
+	width: 505px;
+	height: 20px;
+	line-height: 20px;
+	border-bottom: #CEB2D6 1px solid;
+}
+
+.box-conta li .box-list-dados-prof ul li span,.box-conta li .box-list-dados-prof ul li h2,.box-conta li .box-list-dados-prof ul li a
+	{
+	float: left;
+}
+
+.box-conta li .box-list-dados-prof ul li span {
+	width: 100px;
+	color: #CEB2D6;
+}
+
+.box-conta li .box-list-dados-prof ul li span.dado-dia {
+	width: auto;
+	float: none;
+	color: #ceb2d6;
+}
+
+.box-conta li .box-list-dados-prof ul li h2 {
+	width: 345px;
+	font-weight: 500;
+	margin: 0;
+	padding: 0;
+	color: #8455A2;
+	font-size: 20px;
+}
+
+.box-conta li .box-list-dados-prof ul li a {
+	float: right;
+	background: url("#{resource['images/ico-edit.png']}") left center
+		no-repeat;
+	padding: 5px 0 5px 25px;
+	text-align: right;
+	text-decoration: none;
+	margin-top: -10px;
+	color: #8455a2;
+	font-size: 21px;
+}
+
+.box-conta li .box-list-dados-prof ul li a:hover {
+	color: #CEB2D6;
+}
+
+.box-conta li .bt-escolherfts {
+	float: left;
+	margin: 35px 20px;
+}
+
+.art-fotos-adicionais {
+	width: 750px;
+	float: left;
+}
+
+.box-fotos-adicionais {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.box-fotos-adicionais {
+	margin-bottom: 20px;
+}
+
+.box-fotos-adicionais h1 {
+	color: #ceb2d6;
+	font-weight: 500;
+	border-bottom: #ceb2d6 2px solid;
+}
+
+.box-fotos-adicionais fieldset {
+	margin-bottom: 15px;
+}
+
+.box-fotos-adicionais .bt-escolherfts {
+	float: left;
+	margin: 10px 22px;
+}
+
+.box-fotos ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.box-fotos ul li {
+	float: left;
+	width: 100px;
+	margin-right: 20px;
+}
+
+.formfotos fieldset input {
+	float: left;
+	width: 30%;
+	height: 20px;
+	color: #cccce4;
+	font-size: 20px;
+	text-transform: uppercase;
+	border: #cccce4 2px solid;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	padding-left: 08px;
+	margin-right: 10px;
+}
+
+.formfotos fieldset input[type=text]:focus {
+	border: 2px solid #cccce4;
+	-webkit-box-shadow: -2px 2px 3px #ccc;
+	-moz-box-shadow: -2px 2px 3px #ccc;
+	box-shadow: -2px 2px 3px #ccc;
+}
+
+.bt-escolherfoto {
+	padding: 2px 10px;
+	background: #8455A2;
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 18px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+}
+
+/* ------------------------------ CRISTIAN ----------------------------- */
+.bt-continuar {
+	width: 100px;
+	display: block;
+	text-decoration: none;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.bt-continuar span {
+	font-size: 20px;
+	color: #CCCCE4;
+	margin-bottom: 0;
+}
+
+.header h1.titulo,.titulo {
+	font-size: 65px;
+	text-align: center;
+	color: #cccce4;
+	margin: 0;
+	font-weight: normal;
+}
+
+.box-aviso-cadastro {
+	width: 330px;
+	padding-left: 50px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: url("#{resource['images/bg-box-aviso.jpg']}") repeat;
+	margin: 10px auto;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border: 3px solid #ccc;
+	position: relative;
+	color: #8560A9;
+	font-size: 22px;
+	line-height: 22px;
+	text-align: left;
+}
+
+.box-aviso-int {
+	text-align: left;
+	width: 229px;
+	height: auto;
+	font-size: 15px;
+	line-height: 15px;
+	padding-bottom: 10px;
+}
+
+.ico-info {
+	top: 50%;
+	left: 15px;
+	margin-top: -10px;
+	position: absolute;
+}
+
+.formcadastro {
+	width: 700px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+.formcadastro fieldset {
+	position: relative;
+	margin-bottom: 10px;
+	display: -moz-inline-stack;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	width: 99%;
+}
+
+.formcadastro fieldset label {
+	width: 99%;
+	position: absolute;
+	text-transform: uppercase;
+	top: 2px;
+	left: 9px;
+	color: #cccce4;
+	font-size: 20px;
+	text-align: left;
+}
+
+.formcadastro fieldset label.error {
+	color: #dd4c4c;
+	font-size: 15px;
+	right: 5px;
+	top: 8px;
+	left: auto;
+	width: auto;
+	text-transform: none;
+}
+/* color:#cccce4; */
+.formcadastro fieldset input,.formcadastro fieldset select {
+	width: 99%;
+	height: 25px;
+	color: #8560A9;
+	font-size: 20px;
+	text-transform: uppercase;
+	border: #cccce4 2px solid;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	padding-left: 08px;
+}
+
+.formcadastro fieldset select {
+	height: 31px;
+}
+
+.formcadastro fieldset input[type=text]:focus {
+	border: 2px solid #cccce4;
+	-webkit-box-shadow: -2px 2px 3px #ccc;
+	-moz-box-shadow: -2px 2px 3px #ccc;
+	box-shadow: -2px 2px 3px #ccc;
+}
+
+.formcadastro fieldset.linha1 {
+	width: 45%;
+	margin-right: 20px;
+}
+
+.formcadastro fieldset.linha2 {
+	width: 50%;
+}
+
+.formcadastro fieldset.linha3 {
+	width: 14%;
+	margin-right: 20px;
+}
+
+.formcadastro fieldset.linha4 {
+	width: 15%;
+	margin-right: 20px;
+}
+
+.formcadastro fieldset.linha5 {
+	width: 45%;
+	margin-right: 20px;
+}
+
+.formcadastro fieldset.linha6 {
+	width: 14%;
+}
+
+.formcadastro fieldset.linha7 {
+	width: 81%;
+	margin-right: 20px;
+}
+
+.formcadastro fieldset.linha8 {
+	width: 15%;
+}
+
+.formcadastro fieldset.linha9 {
+	width: 30%;
+	margin-right: 20px;
+}
+
+.formcadastro fieldset.linha10 {
+	width: 10%;
+	margin-right: 20px;
+}
+
+.formcadastro fieldset.linha11 {
+	width: 40%;
+	margin-right: 20px;
+}
+
+.formcadastro fieldset.linha11_1 {
+	width: 1%;
+}
+
+.formcadastro fieldset.linha12 {
+	width: 43%;
+}
+
+.formcadastro fieldset.linha13 {
+	width: 43%;
+}
+
+.btConfirmar,input.btConfirmar,button.btConfirmar {
+	background: #8560A9;
+	text-align: center;
+	color: #fff;
+	font-size: 35px;
+	border: none;
+	text-transform: uppercase;
+	padding: 2px 60px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+
+/* BARRA ESQ */
+.barra-esq {
+	width: 350px;
+	margin-top: 50px;
+	border-right: #8455A2 1px solid;
+	margin-left: -50px;
+	padding-right: 50px;
+	float: left;
+}
+
+.barra-esq .formcadastro {
+	width: 100%;
+}
+
+.barra-esq .formcadastro fieldset {
+	width: 102%;
+	margin-left: -65px;
+	position: relative;
+}
+
+.barra-esq .formcadastro fieldset .inptft {
+	width: 31%;
+	margin-right: 10px;
+	margin-top: 34px;
+}
+
+.btpadrao {
+	background: #8455A2;
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 24px;
+	padding: 0 20px;
+	margin-left: 15px;
+	margin-right: -7px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	display: -moz-inline-stack;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	float: right;
+}
+
+.btpadrao:hover {
+	color: #CEB2D6;
+}
+
+.bt-select {
+	width: 35px;
+	height: 31px;
+	display: block;
+	background: url("#{resource['images/ico-select.jpg']}") center no-repeat
+		#cccce4;
+	position: absolute;
+	top: 0;
+	right: 35px;
+}
+
+.bt-mais {
+	width: 35px;
+	height: 31px;
+	display: block;
+	background: url("#{resource['images/ico-mais.jpg']}") center no-repeat
+		#cccce4;
+	position: absolute;
+	top: 0;
+	right: -8px;
+}
+
+.art-cont {
+	width: 620px;
+	float: left;
+	padding-left: 50px;
+	margin-top: 30px;
+}
+
+/* LISTA PROFISSIONAIS */
+.ico-ft {
+	width: 100px;
+	height: 100px;
+	background: url("#{resource['images/ico-fotos.png']}") center no-repeat;
+	float: left;
+	border: #8455A2 1px solid;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	overflow: hidden;
+}
+
+.bt-escolherfts {
+	padding: 2px 10px;
+	background: #8455A2;
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 18px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+}
+
+.bt-escolherfts:hover {
+	color: #CEB2D6;
+}
+
+.listprofissionais {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.listprofissionais li {
+	margin-bottom: 20px;
+}
+
+.listprofissionais li h1 {
+	text-align: left;
+	color: #8455A2;
+	font-weight: 500;
+	border-bottom: #8455A2 2px solid;
+}
+
+.listprofissionais li .box-list-dados-prof {
+	width: 100px;
+	float: left;
+}
+
+.listprofissionais li .box-list-dados-prof ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.listprofissionais li .box-list-dados-prof ul li {
+	width: 380px;
+	height: 20px;
+	line-height: 20px;
+	border-bottom: #CEB2D6 1px solid;
+}
+
+.listprofissionais li .box-list-dados-prof ul li span,.listprofissionais li .box-list-dados-prof ul li h2,.listprofissionais li .box-list-dados-prof ul li a
+	{
+	float: left;
+}
+
+.listprofissionais li .box-list-dados-prof ul li span {
+	width: 100px;
+	color: #CEB2D6;
+}
+
+.listprofissionais li .box-list-dados-prof ul li h2 {
+	width: 150px;
+	font-weight: 500;
+	margin: 0;
+	padding: 0;
+	color: #8455A2;
+	font-size: 20px;
+}
+
+.listprofissionais li .box-list-dados-prof ul li a {
+	float: right;
+	background: url("#{resource['images/ico-edit.png']}") left center
+		no-repeat;
+	padding: 5px 0 5px 25px;
+	text-align: right;
+	text-decoration: none;
+	margin-top: -10px;
+	color: #8455a2;
+	font-size: 21px;
+}
+
+.listprofissionais li .box-list-dados-prof ul li a:hover {
+	color: #CEB2D6;
+}
+
+.listprofissionais li .bt-escolherfts {
+	float: left;
+	margin: 35px 20px;
+}
+
+/* ICONE FALE CONOSCO */
+.ico-faleconosco {
+	width: 139px;
+	height: 104px;
+	display: block;
+	margin: 0 auto;
+}
+
+/* AGENDA */
+.listhorarios {
+	width: 560px;
+	list-style: none;
+	float: left;
+	margin-left: 50px;
+	margin-top: 160px;
+}
+
+.listhorarios li {
+	width: 520px;
+	padding: 10px 20px;
+	margin-bottom: 2px;
+	float: left;
+	background: #CEB2D6;
+	line-height: 35px;
+}
+
+.listhorarios span.hora {
+	font-size: 35px;
+	color: #000;
+	padding-right: 20px;
+	border-right: #270D2F 1px solid;
+	margin-right: 20px;
+}
+
+.listhorarios span {
+	color: #fff;
+	font-size: 35px;
+}
+
+.desc-data span {
+	float: left;
+	width: 120px;
+	font-size: 40px;
+	text-transform: uppercase;
+}
+
+.desc-data span.deslist {
+	text-transform: normal;
+	font-size: 25px;
+}
+
+.box-calendario {
+	margin: 80px 0;
+	float: left;
+}
+
+.ui-datepicker {
+	width: 372px;
+	padding: 0;
+}
+
+.ui-widget {
+	font-family: "ChaletComprimeCologneSixty", Arial;
+}
+
+.ui-widget-content {
+	background: none;
+	border: none;
+}
+
+.ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next {
+	background: #8455A2;
+}
+
+.ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus
+	{
+	border: none;
+	padding: 0;
+}
+
+.ui-datepicker .ui-datepicker-next {
+	top: 0;
+	right: 0;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+	top: 0;
+	left: 0;
+}
+
+.ui-datepicker .ui-datepicker-title {
+	font-size: 40px;
+	margin: 0;
+	line-height: 40px;
+	text-transform: uppercase;
+}
+
+.ui-widget-header {
+	background: none;
+	border: none;
+}
+
+.ui-datepicker th {
+	padding: 0;
+	font-weight: 500;
+}
+
+.ui-datepicker thead {
+	font-size: 25px;
+	text-transform: uppercase;
+}
+
+.ui-state-default,.ui-widget-content .ui-state-default,.ui-widget-header .ui-state-default
+	{
+	background: none;
+	border: none;
+	background: #fff;
+	color: #ceb2d6;
+	text-align: center;
+	font-size: 40px;
+	padding: 0;
+}
+
+.ui-state-highlight,.ui-widget-content .ui-state-highlight {
+	background: #8455a2;
+}
+
+.ui-datepicker tbody {
+	background: #ceb2d6;
+	border: 1px #8455a2 solid;
+}
+
+.ui-datepicker table {
+	font-size: 31px;
+	border-spacing: 0;
+}
+
+.ui-datepicker td {
+	padding: 0;
+	border-bottom: #CEB2D6 1px solid;
+}

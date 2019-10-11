@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	template="/pages/commons/templates/main_layout.xhtml">
+	
+	<ui:define name="content">
+		<div id="container" align="left">
+			<h1>Cadastro de Endereço</h1>
+			
+			<h:form binding="#{enderecoBean.form}">
+				
+				<t:saveState value="#{enderecoBean.state}"/>
+				<t:saveState value="#{enderecoBean.endereco}"/>
+				<t:saveState value="#{enderecoBean.enderecos}" />
+				
+				<t:div id="blocoDePesquisa" rendered="#{enderecoBean.pesquisando}">
+					<div align="right">
+						<h:commandLink value="Novo" 
+							action="#{enderecoBean.preparaParaAdicionar}">
+							<f:ajax render="@form" />
+						</h:commandLink> &#160;
+						<h:commandButton value="Listar" 
+							action="#{enderecoBean.listarTodos}">
+							<f:ajax render="tabela :mensagens" />
+						</h:commandButton>
+					</div>
+					<h:dataTable
+						id="tabela"
+						value="#{enderecoBean.enderecos}"
+						var="endereco"
+						rowClasses="odd, even">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="ID" />
+							</f:facet>
+							#{endereco.id}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Uf" />
+							</f:facet>
+							#{endereco.uf}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Cidade" />
+							</f:facet>
+							#{endereco.cidade}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Bairro" />
+							</f:facet>
+							#{endereco.bairro}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Logradouro" />
+							</f:facet>
+							#{endereco.logradouro}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Numero" />
+							</f:facet>
+							#{endereco.numero}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Cep" />
+							</f:facet>
+							#{endereco.cep}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Complemento" />
+							</f:facet>
+							#{endereco.complemento}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Latitude" />
+							</f:facet>
+							#{endereco.latitude}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Longitude" />
+							</f:facet>
+							#{endereco.longitude}
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Regiao" />
+							</f:facet>
+							#{endereco.regiao}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Cidade" />
+							</f:facet>
+							#{endereco.cidade}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Cidade" />
+							</f:facet>
+							#{endereco.cidade}
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Ações" />
+							</f:facet>
+							<h:commandLink value="editar"
+								action="#{enderecoBean.preparaParaAlterar(endereco)}">
+								<f:ajax render="@form" />
+							</h:commandLink>  &#160;
+							<h:commandLink value="remover"
+								action="#{enderecoBean.excluir}"
+								onclick="return confirm('Deseja realmente remover esta Endereco?');">
+								<f:ajax render="@form :mensagens" />
+								<f:setPropertyActionListener 
+									target="#{enderecoBean.endereco}" value="#{endereco}" />
+							</h:commandLink>
+						</h:column>
+					</h:dataTable>
+				</t:div>
+			
+			<t:div id="blocoDeEdicao" 
+					rendered="#{not enderecoBean.pesquisando}">
+					
+					<h:outputLabel value="Cidade" for="cidade" />
+					<h:inputText id="cidade" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.cidade}" 
+						label="Cidade" 
+						required="true" />
+						
+					<h:outputLabel value="Regiao" for="regiao" />
+					<h:inputText id="regiao" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.regiao}" 
+						label="Regiao" 
+						required="true" />	
+						
+					<h:outputLabel value="Bairro" for="bairro" />
+					<h:inputText id="bairro" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.bairro}" 
+						required="true"
+						label="Bairro">
+					</h:inputText> 
+					
+					<h:outputLabel value="Cep" for="cep" />
+					<h:inputText id="cep" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.cep}" 
+						label="Cep" 
+						required="true" />
+						
+					<h:outputLabel value="Complemento" for="complemento" />
+					<h:inputText id="complemento" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.complemento}" 
+						label="Complemento" 
+						required="true" />
+						
+					<h:outputLabel value="Numero" for="numero" />
+					<h:inputText id="numero" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.numero}" 
+						label="Numero" 
+						required="true" />	
+						
+					<h:outputLabel value="Latitude" for="latitude" />
+					<h:inputText id="latitude" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.latitude}" 
+						label="Latitude" 
+						required="true" />
+					
+					<h:outputLabel value="Longitude" for="latitude" />
+					<h:inputText id="longitude" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.longitude}" 
+						label="Longitude" 
+						required="true" />
+						
+					<h:outputLabel value="Logradouro" for="logradouro" />
+					<h:inputText id="logradouro" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.logradouro}" 
+						label="Logradouro" 
+						required="true" />
+						
+					<h:outputLabel value="Uf" for="uf" />
+					<h:inputText id="uf" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.uf}" 
+						label="Uf" 
+						required="true" />	
+						
+					<h:outputLabel value="Seq" for="seq" />
+					<h:inputText id="seq" styleClass="texto-longo"
+						value="#{enderecoBean.endereco.seq}" 
+						label="Uf" 
+						required="true" />	
+					
+					<div align="right">
+						<h:commandLink value="Voltar"
+							immediate="true" 
+							action="#{enderecoBean.voltar}" >
+							<f:ajax execute="@form" render="@form :mensagens" />
+						</h:commandLink> &#160;
+						<h:commandButton value="Inserir" 
+							action="#{enderecoBean.inserir}"
+							rendered="#{enderecoBean.adicionando}">
+							<f:ajax execute="@form" render="@form :mensagens" />
+						</h:commandButton>
+						<h:commandButton value="Alterar" 
+							action="#{enderecoBean.alterar}"
+							rendered="#{enderecoBean.editando}">
+							<f:ajax execute="@form" render="@form :mensagens" />
+						</h:commandButton>
+					</div>
+				</t:div>
+			
+			</h:form>
+			
+		</div>
+	</ui:define>
+	
+</ui:composition>

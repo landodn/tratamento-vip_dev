@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/commons/templates/main_layout.xhtml">
+
+	<ui:define name="content">
+
+		<section class="box-corpo">
+        	
+        	<article class="art-minha-conta">
+        		<ul class="box-conta">
+        			<li>
+        				<h1>Configurações da conta</h1>
+        				<div class="ico-ft"></div>
+        				<form method="post" action="" enctype="multipart/form-data">
+        					<a href="javascript:;" onclick="document.getElementById('fotoseleinput').click();" class="bt-escolherfts">escolher fotos</a>
+        					<input type="file" id="fotoseleinput" style="display: none;" />
+        				</form>
+        				
+        				<div class="box-list-dados-prof">
+        					<ul>
+        						<li>
+        							<span>Nome:</span>
+        							<h2>Mais Você Hair Design</h2>
+        							<a href="#" class="bt-editar">editar</a>
+        						</li>
+        						<li>
+        							<span>Endereço:</span>
+        							<h2>Rua Joaquim Marra, 1162 - Vila Matilde - São Paulo - SP</h2>
+        							<a href="#" class="bt-editar">editar</a>
+        						</li>
+        						<li>
+        							<span>Horário:</span>
+        							<h2><span class="dado-dia">Seg. á Sex</span> das 9h00 ás 18h00 <span class="dado-dia">Sáb.</span> das 9h00 ás 18h00</h2>
+        							<a href="#" class="bt-editar">editar</a>
+        						</li>
+        					</ul>
+        				</div>
+        				<div class="clearfix"></div>
+        			</li>
+        			
+        		</ul>
+        	</article>
+        	<article class="art-fotos-adicionais">
+        		<div class="box-fotos-adicionais">
+        			<h1>Fotos Adicionais</h1>
+        			<form method="post" action="" enctype="multipart/form-data" class="formfotos">
+        				<fieldset>
+        					<input type="text" name="fotoselecionada" id="fotoselecionada" class="inptft" value="DIRETÓRIO:" onclick="document.getElementById('fotoseleinput').click();" />
+        					<a href="javascript:;" onclick="document.getElementById('fotoseleinput').click();" class="bt-escolherfoto">escolher fotos</a>
+        					<input type="file" id="fotoseleinput" style="display: none;" />
+        				</fieldset>
+        			</form>
+        			<div class="box-fotos">
+        				<ul>
+        					<li>
+        						<div class="ico-ft"></div>
+			        			<a href="#" class="bt-escolherfts">EXCLUIR</a>
+			        			<div class="clearfix"></div>
+        					</li>
+        					<li>
+        						<div class="ico-ft"></div>
+			        			<a href="#" class="bt-escolherfts">EXCLUIR</a>
+			        			<div class="clearfix"></div>
+        					</li>
+        					<li>
+        						<div class="ico-ft"></div>
+			        			<a href="#" class="bt-escolherfts">EXCLUIR</a>
+			        			<div class="clearfix"></div>
+        					</li>
+        					<li>
+        						<div class="ico-ft"></div>
+			        			<a href="#" class="bt-escolherfts">EXCLUIR</a>
+			        			<div class="clearfix"></div>
+        					</li>
+        					<li>
+        						<div class="ico-ft"></div>
+			        			<a href="#" class="bt-escolherfts">EXCLUIR</a>
+			        			<div class="clearfix"></div>
+        					</li>
+        				</ul>
+        				
+        			</div>
+        		</div>
+        	</article>
+        	<div class="clearfix"></div>
+        </section>
+
+	</ui:define>
+
+</ui:composition>

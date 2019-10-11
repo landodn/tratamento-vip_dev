@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<c:set var="ctx" value="#{request.contextPath}" scope="request"/>
+
+	<h:head>
+		<title>[Tratamento-VIP]</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	
+		<h:outputStylesheet library="css" name="normalize.css" />
+		<h:outputStylesheet library="css" name="main.css" />
+		<h:outputStylesheet library="css" name="style.css" />
+	
+		<h:outputScript library="js" name="vendor/modernizr-2.6.2.min.js" />
+		<h:outputScript library="js" name="vendor/jquery.js" />
+		<h:outputScript library="js" name="vendor/jquery.maskedinput.min.js" />
+	
+		<!-- bxslider -->
+		<h:outputScript library="tools" name="bxslider/jquery.bxslider.js" />
+		<h:outputStylesheet library="tools" name="bxslider/jquery.bxslider.css" />
+		<!--[if gte IE 9]>
+			<style type="text/css">
+				.gradient {
+					filter: none;
+				}
+			</style>
+		<![endif]-->
+		
+		<script type="text/javascript">
+			jQuery(function($){  
+			    $("#cnpj").mask("999.999.999/9999-99");  
+			    $("#cep").mask("99999-999");
+			});  
+		</script>
+	</h:head>
+
+	<h:body styleClass="back_interno">
+
+		<!--[if lt IE 7]>
+			<p class="browsehappy">Você está utilizando um navegador <strong>desatualizado</strong>. Por favor 
+				<a href="http://browsehappy.com/">faça uma atualização</a> e tenha uma nova experiência com a internet.
+			</p>
+		<![endif]-->
+	
+		<ui:insert name="header">
+			<ui:include src="/pages/commons/templates/header.xhtml" />
+		</ui:insert>
+	
+		<ui:insert name="mensagens">
+			<p:outputPanel autoUpdate="true">
+				<h:panelGroup id="mensagens" layout="block">
+					<h:messages infoClass="notice" errorClass="errors" />
+				</h:panelGroup>
+			</p:outputPanel>
+		</ui:insert>
+	
+		<div id="contentWrap" align="center">
+			<div id="ajax-loading">
+				<p:ajaxStatus>
+					<f:facet name="start">
+						<h:graphicImage library="images" name="ajax-loader.gif" />
+					</f:facet>
+					<f:facet name="complete">
+						<h:outputText value="" />
+					</f:facet>
+				</p:ajaxStatus>
+			</div>
+			<ui:insert name="content">
+				<!-- entre com o conteudo aqui -->
+			</ui:insert>
+		</div>
+	
+		<h:outputScript library="tools" name="label/jquery.infieldlabel.min.js" />
+		<h:outputScript library="tools" name="validate/jquery.validate.min.js" />
+		<h:outputScript library="tools" name="validate/messages_ptbr.js" />
+		
+		
+		<h:outputScript library="tools" name="validate/messages_ptbr.js" />
+	
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	
+		<h:outputScript library="js" name="plugins.js" />
+		<h:outputScript library="js" name="main.js" />
+	
+	</h:body>
+
+</html>

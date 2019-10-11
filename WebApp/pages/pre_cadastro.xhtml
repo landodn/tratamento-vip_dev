@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/pages/commons/templates/main_layout.xhtml">
+
+	<ui:define name="header"></ui:define>
+
+	<ui:define name="content">
+
+		<!-- HEADER -->
+		<header>
+			<div class="logo_interno">
+				<h:graphicImage library="images" name="logo_interno.png" />
+			</div>
+			<div class="banner">
+				<div class="bxslider_banner">
+					<div class="slide" style="height: 450px;">
+						<h:graphicImage library="images" name="imagem-banner.jpg"
+							style="margin: 0 auto;" />
+					</div>
+					<div class="slide" style="height: 450px;">
+						<h:graphicImage library="images" name="imagem-banner.jpg"
+							style="margin: 0 auto;" />
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="box-corpo">
+			<div class="box-texto-passo">Para se cadastrar é bem simples
+				siga os passos abaixo</div>
+			<div class="box-passo-passo">
+				<div class="passo-passo">
+					<div class="passo-dest">01</div>
+					<div class="passo-texto">Para se cadastrar é muito simples
+						preencha todos os campos abaixo como pessoa juridica.</div>
+				</div>
+				<div class="passo-passo">
+					<div class="passo-dest">02</div>
+					<div class="passo-texto">Cadastre os funcionários do salão
+						que prestam serviços e atualise todas as agendas com horários de
+						atendimento disponiveis.</div>
+				</div>
+				<div class="passo-passo">
+					<div class="passo-dest">03</div>
+					<div class="passo-texto">Matenha as fotos e os cadastros do
+						salão e de seus atendentes sempre atualisados no link minha conta.</div>
+				</div>
+				<div class="passo-passo">
+					<div class="passo-dest">04</div>
+					<div class="passo-texto">Para que o sistema funcione
+						perfeitamente mantenha sua agenda fotos e cadastros sempre
+						atualizados basta alterar os dados assim que você tiver alguma
+						alteração nos seus serviços.</div>
+				</div>
+			</div>
+		</section>
+		<footer class="box-footer">
+			<h:form id="form" prependId="true" styleClass="form-login">
+				<h:commandLink styleClass="bt-continuar"
+					action="#{salaoBelezaBean.preCadastro}" ajax="false" immediate="true">
+					<span>CONTINUAR</span>
+					<h:graphicImage library="images" name="ico-continuar.png" />
+				</h:commandLink>
+			</h:form>
+		</footer>
+
+	</ui:define>
+
+</ui:composition>
